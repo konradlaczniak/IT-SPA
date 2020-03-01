@@ -1,0 +1,53 @@
+.rooms {
+    width:90%;
+    margin: 0 auto;
+    background-color: red;
+}
+
+.info-head {
+    display: flex;
+    padding: 1.5rem;
+    font-size: 2rem;
+    .head-left{
+        width:50%;
+        font-size: 3rem;
+        padding:1rem;
+    }
+    .head-right{
+        width:50%;
+        display:inline;
+        figure{
+            float:left;
+            width:33%;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.info-rooms {
+    display: flex;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.list-group-item {
+    width:90%;
+    margin: 0 auto;
+    img{
+        width:90%;
+    }
+    
+}
+
+.room-list{
+    width:90%;
+    margin: 0 auto; 
+    
+}
+
+
+
+.card-footer {
+    border: 1px solid red;
+}
+
