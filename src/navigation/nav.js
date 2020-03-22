@@ -5,9 +5,14 @@ import { navItem } from './nav-item';
 
 export const nav = () => {
   const navbar = $(`
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md fixed-top">
       <span class="navbar-brand">IT SPA</span>
-      <ul class="navbar-nav mr-auto"></ul>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto"></ul>
+        </div>
     </nav>
   `);
 

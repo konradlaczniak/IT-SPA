@@ -1,7 +1,7 @@
 .rooms {
     width:90%;
     margin: 0 auto;
-    background-color: red;
+    background-color: lightblue;
 }
 
 .info-head {
@@ -31,7 +31,7 @@
 }
 
 .list-group-item {
-    width:90%;
+    width:100%;
     margin: 0 auto;
     img{
         width:90%;
@@ -42,12 +42,39 @@
 .room-list{
     width:90%;
     margin: 0 auto; 
-    
 }
 
 
 
 .card-footer {
+    margin: 0 auto; 
+    width:90%;
+    display:flex;
     border: 1px solid red;
+    .card-price{
+        font-size: 2rem;
+        font-weight:700;
+        width:25%;
+        padding: 2rem;
+        border-right: 0.01rem solid lightgrey;
+    }
+    .card-content{
+        text-align:left;
+        width: 35%;
+        padding: 0.5rem;
+        .card-content-details{
+            display:flex;
+            .card-content-details-more{
+            padding:0.2rem 1rem;
+            font-size: 1.5rem;
+            }
+        }
+        img{
+            width:2rem;
+        }
+    }
+    button {
+        width:40%;
+    }
 }
 

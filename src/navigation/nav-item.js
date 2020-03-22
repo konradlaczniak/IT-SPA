@@ -4,7 +4,7 @@ import $ from 'jquery';
 // chcemy, aby klikniecie w element anchor powodowalo nawigacje do innej sciezki
 export const navItem = (text, click) => {
   const navItem = $('<li class="nav-item"></li>');
-  const anchor = $('<a class="btn btn-link text-light"></a>');
+  const anchor = $('<a class="nav-link text-uppercase font-weight-bold"></a>');
   anchor.text(text).on('click', click);
 
 document.crea
