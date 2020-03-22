@@ -8,8 +8,8 @@
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: rgb(114, 21, 102);
-    text-decoration: none;
+    color: #3D9970;
+    text-decoration: underline;
 }
 
 .navbar .navbar-brand {
@@ -29,8 +29,8 @@
 
 .navbar.active .nav-link:hover,
 .navbar.active .nav-link:focus {
-    color: #555;
-    text-decoration: none;
+    color: #3D9970;
+    text-decoration: underline;
 }
 
 .navbar.active .navbar-brand {
