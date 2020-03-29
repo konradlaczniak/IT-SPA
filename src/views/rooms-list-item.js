@@ -8,7 +8,7 @@ export const roomsListItem = (room) => {
 //     const photo = $(`<figure>
 //     <a><img src="../../images/room1.jpg" alt="room1"></a>
 // </figure>`)
-    li.html( `<div class="romm-details">
+    li.html( `<div class="room-details">
         <figure>
 	        <img src='${image}' alt="room1">
         </figure>
