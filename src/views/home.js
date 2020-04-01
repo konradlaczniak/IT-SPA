@@ -7,34 +7,31 @@ export const home = () => {
   const fragment = $(new DocumentFragment());
 
   fragment
-    .append(`<div id="slides" class="carousel slide" data-ride="carousel">
-	<ul class="carousel-indicators">
-		<li data-target="#slides" data-slide-to="0" class="active"></li>
-		<li data-target="#slides" data-slide-to="1" ></li>
-		<li data-target="#slides" data-slide-to="2" ></li>
-	</ul>
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img src = '${background}'alt = "background">
-			<div class="carousel-caption">
-				<h1 class="display-2">Bootstrap</h1>
-				<h3>Complete Website Layout</h3>
-				<button type="button" class="btn btn-outline-light btn-lg">View demo</button>
-				<button class="btn btn-primary btn-lg">Get Started</button>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img src='${background2}' alt="background">
-		</div>
-		<div class="carousel-item">
-			<img src='${background3}' alt="background">
-		</div>
-	</div>
-	<section id="scroll-button" class="demo">
-  		<a href="#section-info"><span></span>Przejdz dalej</a>
-	</section>
-</div>
-`)
+	  .append(`
+	<header class="home-header">
+    	<div class="container-fluid">
+	    	<div class="head_1">
+				<h2 class="sub-headline">
+					<span class="first-letter">W</span>elcome
+				</h2>
+				<h1 class="headline">IT SPA</h1>
+				<div class="headline-description">
+					<div class="separator">
+						<div class="line line-left"></div>
+						<div class="asterisk"><i class="fas fa-asterisk"></i></div>
+						<div class="line line-right"></div>
+					</div>
+					<div class="single-animation">
+						<h5>Ready to be booked</h5>
+						<a href="#section-info" class="btn cta-btn">Explore</a>
+					</div>
+				</div>
+				<section id="scroll-button" class="demo">
+  					<a href="#section-info"><span></span></a>
+				</section>
+        	</div>
+      	</div>
+	</header>`)
 .append(`<section id="section-info">
 	<div class="container-fluid p-5">
 		<div class="container-hotel-info">
@@ -59,9 +56,24 @@ export const home = () => {
 			</div>
 			<div class="row p-4">
 				<div class="col-lg-12 p-2">
-						<figure class="figure">
-						<img src='${background}' class="figure-img img-fluid" alt="Food">
-						</figure>
+					<div id="slides_2" class="carousel slide" data-ride="carousel">
+						<ul class="carousel-indicators">
+							<li data-target="#slides_2" data-slide-to="0" class="active"></li>
+							<li data-target="#slides_2" data-slide-to="1" ></li>
+							<li data-target="#slides_2" data-slide-to="2" ></li>
+						</ul>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src = '${background}'alt = "background">
+							</div>
+							<div class="carousel-item">
+								<img src='${background2}' alt="background">
+							</div>
+							<div class="carousel-item">
+								<img src='${background3}' alt="background">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -82,7 +94,7 @@ export const home = () => {
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ad dicta fugit enim molestiae nemo ratione excepturi sed eligendi culpa reiciendis ipsum, vel atque aut! Veniam minima repudiandae ipsam fugiat!</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quam harum voluptate architecto laudantium alias est eos veniam ipsum, vitae veritatis quo necessitatibus voluptatem deserunt obcaecati aliquam sequi quaerat sint.</p>
 				<br>
-				<a href="#" class="btn btn-success">Dowiedz się więcej</a>
+				<a href="#" class="btn btn-dark">Dowiedz się więcej</a>
 			</div>
 		</div>
 		<div class="row mt-5 bg2" >
@@ -92,7 +104,7 @@ export const home = () => {
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ad dicta fugit enim molestiae nemo ratione excepturi sed eligendi culpa reiciendis ipsum, vel atque aut! Veniam minima repudiandae ipsam fugiat!</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quam harum voluptate architecto laudantium alias est eos veniam ipsum, vitae veritatis quo necessitatibus voluptatem deserunt obcaecati aliquam sequi quaerat sint.</p>
 				<br>
-				<a href="#" class="btn btn-success">Dowiedz się więcej</a>
+				<a href="#" class="btn btn-dark">Dowiedz się więcej</a>
 			</div>
 			<div class="col-lg-6 p-2">
 					<figure class="figure">

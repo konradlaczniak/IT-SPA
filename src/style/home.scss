@@ -1,3 +1,161 @@
+body{
+    overflow-x: hidden;
+}
+
+.home-header {
+height:100vh;
+background-image: url("../images/head.jpg"); //CENTER NO-REPEAT
+background-size: cover;
+display:flex;
+align-items: center;
+text-align: center;
+    .sub-headline{
+        font-size: 5.5rem;
+        color: #c59d5f;
+        line-height: .4;
+        letter-spacing: 2px;
+        opacity:0;
+        animation: showUp .5s forwards;
+        animation-delay: .5s;
+        .first-letter{
+            text-transform: uppercase;
+            font-size: 8rem;
+        }
+    }
+    .headline {
+        color: #fff;
+        font-size: 4rem;
+        font-weight: 900;
+        letter-spacing: .5rem;
+        animation: scale .5s forwards;
+    }
+    .headline-description{
+        h5 {
+            color: #fff;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            // margin-bottom: 1.2rem;
+            letter-spacing:3px;
+        }
+        .btn{
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .cta-btn {
+            font-size: 1.2rem;
+            background-color: #fff;
+            padding: .9rem 1.8rem;
+            transition: background-color .5s;
+        }
+        .cta-btn:hover,
+        .cta-btn:focus{
+            color:#fff;
+            background-color: #c59d5f;
+        }
+        .separator{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+                .line{
+                    width:100%;
+                    max-width: 8.5rem;
+                    height: .25rem;
+                    background-color: #fff;
+                    position: relative; 
+                    opacity: 0;
+                    animation: grow 2s forwards;
+                    animation-delay: .9s;
+                }
+                .line-right::before,
+                .line-left::before{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border: 22px solid transparent;
+                }
+                .line-right::before{
+                    border-right-color: #fff;
+                    right:0;
+                }
+                .line-left::before {
+                    border-left-color: #fff;
+                    left: 0;
+                }
+                .asterisk{
+                    font-size:1.2rem;
+                    color:#c59d5f;
+                    margin: 0 1.6rem;
+                    opacity: 0;
+                    animation: spin .5s forwards;
+                    animation-delay: .7s;
+                }
+        }
+        .single-animation{
+            opacity:0;
+            animation: showDown .5s forwards;
+            animation-delay: 1.5s;
+        }
+    }
+}
+
+// Animations head
+
+@keyframes showUp {
+    0% {
+        transform: translateY(4rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes grow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+} 
+
+@keyframes showDown {
+    0% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(360deg);
+    }
+}
+
+
+
 .carousel-item {
     transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;
@@ -11,6 +169,7 @@
     height:100vh;
 }
 
+
 // smooth scroll button 
 
 html {
@@ -20,7 +179,7 @@ html {
 .demo a {
     position: absolute;
     bottom: 5%;
-    left: 5%;
+    left: 7%;
     z-index: 1;
     display: inline-block;
     -webkit-transform: translate(0, -50%);
@@ -133,7 +292,7 @@ html {
     width: 30%;
     height: 100%;
     left: 70%;
-    background-color: rgba(61, 153, 112, 0.2);
+    background-color: #c59d5f;
 }
 
 .bg2 {
@@ -146,7 +305,7 @@ html {
     width: 30%;
     height: 100%;
     right: 70%;
-    background-color: rgba(61, 153, 112, 0.2);
+    background-color: #c59d5f;
 }
 
 .container-hotel-info {
@@ -159,5 +318,5 @@ html {
     width: 30%;
     height: 100%;
     right: 70%;
-    background-color: rgba(61, 153, 112, 0.2);
+    background-color: #c59d5f;
 }
