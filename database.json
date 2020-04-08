@@ -38,14 +38,14 @@
     {
       "id": 1,
       "name": "Masaż rozgrzanym monitorem",
-      "area": "back",
+      "area": "body",
       "time": 30,
       "price": 80
     },
     {
       "id": 2,
       "name": "Biczowanie kablem od myszy",
-      "area": "back",
+      "area": "body",
       "time": 20,
       "price": 70
     },
@@ -59,14 +59,14 @@
     {
       "id": 4,
       "name": "Pedicure woskiem z USB",
-      "area": "legs",
+      "area": "hands&legs",
       "time": 25,
       "price": 100
     },
     {
       "id": 5,
       "name": "Manicure analogowo-cyfrowy",
-      "area": "hands",
+      "area": "hands&legs",
       "time": 45,
       "price": 150
     },
@@ -83,6 +83,13 @@
       "area": "body",
       "time": 45,
       "price": 120
+    },
+    {
+      "id": 8,
+      "name": "Maseczka z kwasami binarnymi",
+      "area": "face",
+      "time": 30,
+      "price": 150
     }
   ]
 }

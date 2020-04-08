@@ -4,7 +4,8 @@ body{
 
 .home-header {
 height:100vh;
-background-image: url("../images/head.jpg"); //CENTER NO-REPEAT
+background-image: url("../images/head.jpg"); //CENTER NO-REPEAT\
+background-position: 50% 0%;
 background-size: cover;
 display:flex;
 align-items: center;
