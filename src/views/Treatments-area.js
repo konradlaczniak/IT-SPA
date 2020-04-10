@@ -10,7 +10,7 @@ export const treatmentsArea = () => {
 
     for (let i=0; i<categories.length; i++) {
         area += `
-        <div class="card m-auto w-75 treatmentsCategory">
+        <div class="card mb-4 mx-auto  w-75 treatmentsCategory">
             <img src='${body}' class="card-img main-treatment-card" alt="...">
             <div class="card-header card-img-overlay" id="headingMain${iterations[i]}">
                 <div class="treatments-tab-title">

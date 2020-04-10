@@ -60,7 +60,8 @@
         padding:0.5rem;
         .treatment-item-info{
             display:flex;
-            .label{
+            .treatment-item-time,
+            .treatment-item-price {
                 margin-right: 3rem;
             }
         }

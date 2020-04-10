@@ -1,0 +1,181 @@
+.booking-header {
+    background-image: url("../images/booking.jpg");
+    background-size: cover;
+    background-position: 50% 0%;
+    background-attachment: fixed;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    .booking-form-box {
+        max-width:350px;
+        border: 1px solid grey;
+        border-radius: 2px;
+        margin: 0 auto 0;
+
+        .booking-form {
+            padding: 0 1rem 1rem;
+
+            label{
+                color:#fff;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            input::placeholder{
+                color: #fff !important;
+            }
+            .form-control{
+                font-size: 1rem;
+                border: 1px solid grey;
+                border-radius: 2px;
+                color: #fff;
+                background: transparent;
+                box-shadow: none;
+            }
+            .select-date::-webkit-inner-spin-button,
+            .select-date::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            .select-date::-webkit-calendar-picker-indicator{
+                background: transparent;
+            }
+            .bookBtn {
+                width:100%;
+                margin-top: 1rem;
+                border: 1px solid grey;
+                background: transparent;
+            }
+            .bookBtn:hover{
+                background-color: #fff;
+                color: #000;
+                transition: 0.5s;
+            }
+        }
+    }
+
+}
+
+.cart-section {
+    
+    border: 1px solid #d2d7da;
+    padding: 0;
+
+    .cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+    justify-content: center;
+    }
+
+    .section-header{
+        background-color: #c59d5f;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .cart-column {
+        display: flex;
+        align-items: center;
+        margin-right: 1.5em;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        
+    }
+
+    .cart-row {
+        display: flex;
+        border-bottom: 1px solid #d2d7da;
+        
+    }
+
+    .cart-row:last-child {
+        border-bottom: 1px solid darkgray;
+    }
+
+    .cart-categories {
+        border-bottom: 1px solid darkgray;
+    }
+
+    .cart-item {
+        width: 45%;
+    }
+
+    .cart-price {
+        width: 40%;
+        font-size: 1.2em;
+        color: #333;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cart-delete {
+        width: 15%;
+        justify-content: center;
+        
+        .btn-danger {
+            color: white;
+            background-color: #EB5757;
+            border: none;
+            border-radius: .3em;
+            font-weight: bold;
+        }
+
+        .btn-danger:hover {
+            background-color: #CC4C4C;
+        }
+
+    }
+
+    .cart-items {
+ 
+        .cart-item-title {
+            color: #333;
+            margin-left: .5em;
+            font-size: 1.2em;
+        }
+
+        .cart-item-image {
+            width: 75px;
+            height: auto;
+            border-radius: 10px;
+        }  
+    }
+}
+
+.btn-purchase {
+    display: block;
+    margin: 2rem auto 2rem auto;
+    font-size: 1.75em;
+}
+
+.summary-section {
+    .list-group-item {
+        text-align: left;
+        margin: 1.5rem;
+        border-bottom: 1px solid #d2d7da;
+    }
+    .summary-item-info {
+        font-weight: bold;
+        
+    }
+}
+
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
