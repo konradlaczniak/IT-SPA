@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import body from '../../images/body1.jpg';
 
 export const treatmentsItem = (treatment) => {
     const div = $(`<div class="card"></div>`);

@@ -33,9 +33,20 @@ export const rooms = () => {
 					<h4>Twoje miejsce wypoczynku</h4>
 				</div>
 				<div class="col-lg-6 p-2">
-						<figure class="figure">
-						<img src='#' class="figure-img img-fluid" alt="Food">
-						</figure>
+						<div class="icons">
+							<div class="icon-item p-3">
+								<div class="i-icon-pic"><img src="https://img.icons8.com/pastel-glyph/64/000000/bed--v1.png"/></div>
+								<h3 class="i-icon-title">Lorem ipsum dolor sit amet</h3>
+							</div>
+							<div class="icon-item p-3">
+								<div class="i-icon-pic"><img src="https://img.icons8.com/pastel-glyph/64/000000/room-service.png"/></div>
+								<h3 class="i-icon-title">Lorem ipsum dolor sit amet</h3>		
+							</div>
+							<div class="icon-item p-3">
+								<div class="i-icon-pic"><img src="https://img.icons8.com/ios/50/000000/hotel-changing-room.png"/></div>
+								<h3 class="i-icon-title">Lorem ipsum dolor sit amet</h3>
+							</div>
+						</div>
 				</div>
 			</div>
 			<div class="row p-3">

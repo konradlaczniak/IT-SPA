@@ -1,5 +1,6 @@
 import $ from 'jquery';
-
+import massage from '../../images/massage1.png';
+import sleep from '../../images/sleep1.png';
 export const booking = () => {
   const fragment = $(new DocumentFragment());
 
@@ -8,21 +9,23 @@ export const booking = () => {
     <div class="container-fluid">
         <div class="booking-form-box">
           <div class="booking-form">
+          <form>
             <div class="input-grp">
                 <label>Arrival</label>
-                <input type="date" class="form-control select-date">
+                <input type="date" class="form-control select-date" id="arrival-date" >
             </div>
             <div class="input-grp">
                 <label>Departure</label>
-                <input type="date" class="form-control select-date">
+                <input type="date" class="form-control select-date" id="departure-date" disabled>
             </div>
             <div class="input-grp">
                 <label>Guests</label>
-                <input type="number" class="form-control" value="1">
-            </div>
+                <input type="number" class="form-control" id="numGuests" value="1">
+            </label>
             <div class="input-grp">
-              <button type="button" onclick="location.href='http://localhost:1234/rooms'" class="btn btn-primary bookBtn">Save and show rooms</button>
+              <button type="button" class="btn btn-primary bookBtn">Confirm</button>
             </div>
+            </form>
           </div>
         </div>
     </div>
@@ -38,7 +41,7 @@ export const booking = () => {
             <div class="cart-items">
                 <div class="cart-row">
                     <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="Images/Shirt.png" width="100" height="100">
+                        <img class="cart-item-image mx-3" src='${massage}' width="100" height="100">
                         <span class="cart-item-title">T-Shirt</span>
                     </div>
                     <span class="cart-price cart-column">$19.99</span>
@@ -48,7 +51,7 @@ export const booking = () => {
                 </div>
                 <div class="cart-row">
                     <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="Images/Album 3.png" width="100" height="100">
+                        <img class="cart-item-image mx-3" src='${sleep}' width="100" height="100">
                         <span class="cart-item-title">Album 3</span>
                     </div>
                     <span class="cart-price cart-column">$9.99</span>
@@ -67,10 +70,10 @@ export const booking = () => {
       </div>
         <ul class="list-group">
   <li class="list-group-item">
-    <p><span class="arrival summary-item-info">Arrival:</span></p>
-    <p><span class="departure summary-item-info">Departure:</span></p>
-    <p><span class="nightsNumber summary-item-info">Nights:</span></p>
-        <p><span class="guests summary-item-info">Guests:</span></p>
+    <p><span class="arrival summary-item-info">Arrival: </span><span class="arrival-date-summ"></span></p>
+    <p><span class="departure summary-item-info">Departure: </span><span class="departure-date-summ"></span></p>
+    <p> <span class ="nightsNumber summary-item-info"> Nights: </span><span class="nights-summ"></span></p>
+        <p><span class="guests summary-item-info">Guests: </span><span class="guests-summ"></span></p>
   </li>
   <li class="list-group-item">
     <div class="itemSummary">
@@ -116,5 +119,86 @@ if (day < 10)
 
 let minDate = year + '-' + month + '-' + day;
 let maxDate = nextYear + '-' + month + '-' + day;
-$('.select-date').attr('min', minDate).attr('max', maxDate);
+const arrDate = $('#arrival-date');
+const depDate = $('#departure-date');
+
+$('#arrival-date').attr('min', minDate).attr('max', maxDate);
+
+
+$('#arrival-date').change(function () {
+  const arrDate = $('#arrival-date').val();
+  const depDate = $('#departure-date');
+
+depDate.attr('min', arrDate).attr('max', maxDate);
+
+ if (!arrDate) {
+  depDate.attr('disabled', '');
+  depDate.val('')
+} else {
+  depDate.removeAttr('disabled', '');
+}
+})
+
+}
+
+export function reservationDetails() {
+
+  $(function () {
+
+    const button = $('.bookBtn')
+    button.on('click', function(event){
+      const arrDate = $('#arrival-date').val();
+      const depDate = $('#departure-date').val();
+      const guestsNum = $('#numGuests').val();
+      console.log(!arrDate, !depDate);
+      
+
+      if (arrDate && depDate) {
+      const arrival = $('.arrival-date-summ').html(arrDate);
+      const departure = $('.departure-date-summ').html(depDate);
+      const guests = $('.guests-summ').html(guestsNum);
+      
+      // nights calculation
+      const diffrenceInTime = new Date(depDate).getTime() - new Date(arrDate).getTime();
+      const differenceInDays = diffrenceInTime / (1000*3600*24);
+const nights = $('.nights-summ').html(differenceInDays);
+
+
+      const alert = $(`
+      <div class="alert alert-success alert-dismissible fade show alert-position" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success! </strong> 
+        <br><br>
+        <p>You should check your reservation below.</p>
+      </div>`)
+
+      const header = $('.booking-header').append(alert);
+      
+      $('.booking-form-box').css('border', '1px solid #c59d5f');
+      $('.form-control').css('border', '1px solid #c59d5f');
+      $('.bookBtn').css('border', '1px solid #c59d5f');
+  
+} else {
+const alert = $(`
+      <div class="alert alert-warning alert-dismissible fade show alert-position alert-fail" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>fill in the missing data!</strong> 
+      </div>`)
+
+const header = $('.booking-header').append(alert);
+
+$('.booking-form-box').css('border', '1px solid grey');
+$('.form-control').css('border', '1px solid grey');
+$('.bookBtn').css('border', '1px solid grey');
+}
+
+    })
+
+
+  })
+
 }

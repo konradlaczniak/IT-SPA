@@ -10,6 +10,9 @@ background-size: cover;
 display:flex;
 align-items: center;
 text-align: center;
+
+    
+
     .sub-headline{
         font-size: 5.5rem;
         color: #c59d5f;
@@ -311,6 +314,25 @@ html {
 
 .container-hotel-info {
     position: relative;
+
+    .hotel-title{
+        margin-bottom: 20px;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: space-evenly;
+        .i-icon-pic{
+            height: 50%;
+            padding-bottom: 1.5rem;
+            
+        }
+        .i-icon-title{
+            font-size: 1rem;
+            font-style: italic;
+        }
+    }
+
 }
 
 .container-hotel-info::before {

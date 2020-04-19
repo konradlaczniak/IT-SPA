@@ -36,14 +36,25 @@ export const home = () => {
 	<div class="container-fluid p-5">
 		<div class="container-hotel-info">
 			<div class="row p-3">
-				<div class="col-lg-6 p-2">
+				<div class="col-lg-6 p-2 hotel-title">
 					<h1>Hotel IT SPA</h1>
 					<h4>Twoja strefa chillout w Programowie</h4>
 				</div>
-				<div class="col-lg-6 p-2">
-						<figure class="figure">
-						<img src='#' class="figure-img img-fluid" alt="Food">
-						</figure>
+				<div class="col-lg-6 p-2 features">
+						<div class="icons">
+							<div class="icon-item p-3">
+								<div class="i-icon-pic"><img src="https://img.icons8.com/metro/52/000000/5-star-hotel.png"/></div>
+								<h3 class="i-icon-title">Lorem ipsum dolor sit amet</h3>
+							</div>
+							<div class="icon-item p-3">
+								<div class="i-icon-pic"><img src="https://img.icons8.com/wired/64/000000/bed.png"/></div>
+								<h3 class="i-icon-title">Lorem ipsum dolor sit amet</h3>		
+							</div>
+							<div class="icon-item p-3">
+								<div class="i-icon-pic"><img src="https://img.icons8.com/wired/64/000000/restaurant.png"/></div>
+								<h3 class="i-icon-title">Lorem ipsum dolor sit amet</h3>
+							</div>
+						</div>
 				</div>
 			</div>
 			<div class="row p-3">

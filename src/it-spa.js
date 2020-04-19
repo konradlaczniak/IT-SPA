@@ -3,7 +3,9 @@ import './it-spa.scss';
 import $ from 'jquery';
 import { Router } from './router/router';
 import { nav } from './navigation/nav';
-import {calendarRestriction} from './views/booking'
+import {calendarRestriction,reservationDetails} from './views/booking'
+import {itSpaCart} from './cart/it-spa-cart';
+
 
 const main = $('main');
 
@@ -16,6 +18,8 @@ router.init();
 main.before(nav());
 
 calendarRestriction();
+reservationDetails();
+itSpaCart();
 
 // Nawigacja przejscie
 
