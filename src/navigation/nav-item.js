@@ -7,7 +7,6 @@ export const navItem = (text, click) => {
   const anchor = $('<a class="btn nav-link text-uppercase font-weight-bold"></a>');
   anchor.text(text).on('click', click);
 
-document.crea
 
   navItem.append(anchor);
 

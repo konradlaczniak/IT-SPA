@@ -5,9 +5,9 @@ export const roomsListItem = (room) => {
     const li = $(`<li class="list-group-item"></li>`);
     
     
-    li.html( `<div class="room-details">
+    li.html(`<div class="container room-details">
         <figure>
-	        <img src='${image}' alt="room1">
+	        <img src='${image}' class="img-fluid" alt="room1">
         </figure>
         <div class="card-footer">
             <div class="card-price">${room.price} zł/noc </div>

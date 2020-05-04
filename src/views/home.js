@@ -1,13 +1,12 @@
-import $ from 'jquery';
-import background from '../../images/background.jpg';
-import background2 from '../../images/background2.png';
-import background3 from '../../images/background3.png';
+import $ from "jquery";
+import background from "../../images/background.jpg";
+import background2 from "../../images/carousel1.jpg";
+import background3 from "../../images/carousel2.jpg";
 
 export const home = () => {
   const fragment = $(new DocumentFragment());
 
-  fragment
-	  .append(`
+  fragment.append(`
 	<header class="home-header">
     	<div class="container-fluid">
 	    	<div class="head_1">
@@ -31,8 +30,7 @@ export const home = () => {
 				</section>
         	</div>
       	</div>
-	</header>`)
-.append(`<section id="section-info">
+	</header>`).append(`<section id="section-info">
 	<div class="container-fluid p-5">
 		<div class="container-hotel-info">
 			<div class="row p-3">
@@ -75,13 +73,13 @@ export const home = () => {
 						</ul>
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<img src = '${background}'alt = "background">
+								<img src ='${background}'class="img-fluid" alt ="background">
 							</div>
 							<div class="carousel-item">
-								<img src='${background2}' alt="background">
+								<img src='${background2}' class="img-fluid" alt="background">
 							</div>
 							<div class="carousel-item">
-								<img src='${background3}' alt="background">
+								<img src='${background3}' class="img-fluid" alt="background">
 							</div>
 						</div>
 					</div>
@@ -90,8 +88,7 @@ export const home = () => {
 		</div>
 	</div>
 </section>
-`)
-.append(`<section>
+`).append(`<section>
 	<div class="container-fluid p-5">
 		<div class="row bg1">
 			<div class="col-lg-6 p-2">
@@ -125,17 +122,20 @@ export const home = () => {
 		</div>
 	</div>
 </section>
-`)
-  
-$(function () {
-	$('a[href*=#]').on('click', function (e) {
-		e.preventDefault();
-		$('html, body').animate({
-			scrollTop: $($(this).attr('href')).offset().top
-		}, 500, 'linear');
-	});
-});
+`);
 
+//   $(function () {
+//     $("a[href*=#]").on("click", function (e) {
+//       e.preventDefault();
+//       $("html, body").animate(
+//         {
+//           scrollTop: $($(this).attr("href")).offset().top,
+//         },
+//         500,
+//         "linear"
+//       );
+//     });
+//   });
 
   return fragment;
 };

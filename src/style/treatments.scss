@@ -24,33 +24,40 @@
     }
 }
 
-#button-trn {
-    box-shadow: none;
-}
+.treatmentsCategory{
 
-.main-treatment-card {
-    height:30vh; 
-    object-fit: cover;
-    object-position: 0 85%;
-}
+    width: 85%;
+    margin-bottom: 2rem;
 
-.treatments-tab-title {
-    position:relative;
-    height: 30vh;
-    .btn{
-    position:absolute;
-    bottom: 15%;
-    left: 1%;
+    .main-treatment-card {
+        height: 30vh;
+        object-fit: cover;
+        object-position: 0 85%;
     }
-    
+
+    .treatments-tab-title {
+        position: relative;
+        height: 25vh;
+        
+        .btn {
+            position: absolute;
+            bottom: 15%;
+            left: 1%;
+            box-shadow: none;
+        }
+
+    }
+
 }
+
 
 .treatments-direct-title {
     position:relative;
-    height: 10vh;
+    
     .btn{
     width:100%;
     padding:0;
+    box-shadow: none;
     }
     .treatment-item-head{
         display: flex;
@@ -94,24 +101,9 @@
     color: #c59d5f;
 }
 
-// .item-info {
-//     display: relative;
-//     .icon{
-//         position: absolute;
-//         left: 0;
-//         bottom: 50%;
-//     }
-//   .treatment-item-head{
-//       display: flex;
-//       justify-content: space-between;
-//   }
-//     .treatment-item-info {
-//         display: flex;
-//         justify-content: space-between;
-//     }
-// }
-
-
+.treat-btn {
+    margin-bottom: 2rem;
+}
 // smooth scroll button 
 
 .demo_1 a {

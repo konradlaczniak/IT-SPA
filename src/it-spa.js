@@ -3,7 +3,8 @@ import './it-spa.scss';
 import $ from 'jquery';
 import { Router } from './router/router';
 import { nav } from './navigation/nav';
-import {calendarRestriction,reservationDetails} from './views/booking'
+import { footer } from './footer/footer';
+import {calendarRestriction,reservationDetails} from './cart/booking-logic'
 import {itSpaCart} from './cart/it-spa-cart';
 
 
@@ -16,22 +17,18 @@ router.mount(main);
 router.init();
 
 main.before(nav());
+main.after(footer());
 
-calendarRestriction();
-reservationDetails();
+
+
+
+// calendarRestriction();
+// reservationDetails();
 itSpaCart();
 
 // Nawigacja przejscie
 
-$(function () {
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() > 10) {
-            $('.navbar').addClass('active');
-        } else {
-            $('.navbar').removeClass('active');
-        }
-    });
-});
+
 
 
 

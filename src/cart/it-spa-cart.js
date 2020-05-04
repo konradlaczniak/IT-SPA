@@ -1,9 +1,13 @@
 import $ from 'jquery';
 import { Cart } from "./cart";
+import sleep from '../../images/sleep1.png';
 
 export const itSpaCart = () => {
   const cart = new Cart();
   const fragment = $(new DocumentFragment());
+
+  
+  
 
   // cookieStore.addEventListener('change', (event) => {
   //     // jesli zaistniala zmiana w cookies,
@@ -14,6 +18,12 @@ export const itSpaCart = () => {
   //     // TODO: zaktualizuj to co wyswietla obecnie koszyk
   // });
 
+  
+
+
+
+
+
   $(function() { 
   const removeCartItemButtons = $('.btn-danger');
   console.log(removeCartItemButtons);
@@ -22,6 +32,7 @@ export const itSpaCart = () => {
     const button = removeCartItemButtons[i];
     button.addEventListener('click', removeCartItem)
   }
+  
   setTimeout(function(){
   const addToCartButtons = $('.shop-item-button')
    console.log(addToCartButtons);
@@ -42,6 +53,15 @@ export const itSpaCart = () => {
     const shopItem = button.parentElement.parentElement;
     var title = shopItem.getElementsByClassName('room-name-headline')[0].innerText
     var price = shopItem.getElementsByClassName('card-price')[0].innerText
+    let cart_total = cart.get();
+    const cart_item = {}
+      cart_item.price = shopItem.getElementsByClassName('card-price')[0].innerText
+      cart_item.title = shopItem.getElementsByClassName('room-name-headline')[0].innerText
+    
+    cart_total.push(cart_item);
+    
+    cart.set(cart_total);
+    console.log(cart_total,cart_total[1])
     addItemToCart(title,price);
   }
   // return fragment;
@@ -63,6 +83,40 @@ export const itSpaCart = () => {
     cartItems.append(item);
     console.log(cartItems)
   }
+const roomsBooked = cart.get();
+  function addItemToCart(sleep) {
+
+    
+    console.log(roomsBooked)
+
+    for (let i = 0; i < roomsBooked.length; i++) {
+
+      const item = $(`<div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image mx-3" src='${sleep}' width="100" height="100">
+                        <span class="cart-item-title">${roomsBooked[i].title}</span>
+                    </div>
+                    <span class="cart-price cart-column">${roomsBooked[i].price}</span>
+                    <div class="cart-delete cart-column">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>`)
+
+      const cartItems = $('.cart-items');
+      cartItems.append(item);
+      console.log("abc")
+
+    }
+  }
+
+addItemToCart();
+
+
 
   });
+
+
+
+
 };
+
