@@ -2,6 +2,7 @@ import $ from "jquery";
 import { routeChange } from "../router/route-change";
 import { routes } from "../router/routes";
 import { navItem } from "./nav-item";
+import { itSpaCart } from "../cart/it-spa-cart";
 
 export const nav = () => {
 
@@ -28,13 +29,19 @@ export const nav = () => {
     </nav>
   `);
 
+  const cart = $(`<div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+            <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>
+            <p class="mb-0 text-capitalize"><span id="item-count"></span><span class="cart-start">Add something!</span><span class="item-total"></span></p>
+          </div>
+  `);
+
   // chcemy zbudowac tablice elementow navItem z odpowiednimi nazwami i callbackami
   const navItems = routes.map((route) => {
     const { name, path } = route;
     return navItem(name, () => navbar.trigger(routeChange, { path: path }));
   });
 
-  navbar.find("ul").append(navItems);
+  navbar.find("ul").append(navItems).append(cart);
 
   return navbar;
 

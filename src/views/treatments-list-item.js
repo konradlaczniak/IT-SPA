@@ -15,7 +15,7 @@ export const treatmentsItem = (treatment) => {
                             <span class="label"><i class="fas fa-clock"></i> Time: </span> <span class="value">${treatment.time} min</span>
                         </div>
                         <div class="treatment-item-price">
-                            <span class="label"><i class="fas fa-money-bill-alt"></i> Price: </span> <span class="value">${treatment.price} zl</span>
+                            <span class="label"><i class="fas fa-money-bill-alt"></i> Price: </span> <span class="value">${treatment.price} $</span>
                         </div>
                     </div>
                 </div>

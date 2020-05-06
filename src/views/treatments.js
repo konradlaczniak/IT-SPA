@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import { treatmentsListBody,treatmentsListFace,treatmentsListHAL  } from './treatments-list';
 import { treatmentsArea } from './Treatments-area';
+import { treatmentBook } from "../cart/booking-logic";
+import { showTotals } from "../cart/booking-logic";
+import { addItemToCart } from "../cart/booking-logic";
 
 export const treatments = () => {
   const fragment = $(new DocumentFragment());
@@ -75,6 +78,12 @@ export const treatments = () => {
 .parent().next().find('#collapseMainThree').append(treatmentsListHAL())
 // fragment.find('#collapseMainTwo').append(treatmentsListFace())
 // fragment.find('#collapseMainThree').append(treatmentsListHAL())
+
+setTimeout(function () {
+  treatmentBook(showTotals,addItemToCart);
+}, 1000);
+  
+
 
   return fragment;
 };

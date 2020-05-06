@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import { roomsList } from './rooms-list';
 import background from '../../images/background.jpg';
+import { roomBook } from "../cart/booking-logic";
+import { showTotals } from "../cart/booking-logic";
+import { addItemToCart } from "../cart/booking-logic";
 
 export const rooms = () => {
   const fragment = $(new DocumentFragment());
@@ -62,7 +65,15 @@ export const rooms = () => {
 		</div>
 	</div>
 </section>
-`).find('.rooms-group').append(roomsList())
+`).find('.rooms-group').append(roomsList());
+
+setTimeout(function(){
+	roomBook(showTotals, addItemToCart);},1000)
+  
+
+
+
+	
 
   return fragment;
 };

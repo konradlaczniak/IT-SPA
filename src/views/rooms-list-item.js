@@ -10,7 +10,7 @@ export const roomsListItem = (room) => {
 	        <img src='${image}' class="img-fluid" alt="room1">
         </figure>
         <div class="card-footer">
-            <div class="card-price">${room.price} zł/noc </div>
+            <div class="card-price">${room.price} $/night </div>
             <div class="card-content"> 
                 <h1 class="room-name-headline">${room.name}</h1>
                 <div class="card-content-details">
@@ -21,5 +21,8 @@ export const roomsListItem = (room) => {
             <button class="btn btn-dark shop-item-button">Zarezerwuj</button>
         </div>
     </div>`);
+
+
+
     return li;
 };

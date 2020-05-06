@@ -4,7 +4,6 @@ import $ from 'jquery';
 import { Router } from './router/router';
 import { nav } from './navigation/nav';
 import { footer } from './footer/footer';
-import {calendarRestriction,reservationDetails} from './cart/booking-logic'
 import {itSpaCart} from './cart/it-spa-cart';
 
 
@@ -18,15 +17,8 @@ router.init();
 
 main.before(nav());
 main.after(footer());
+main.after(itSpaCart());
 
-
-
-
-// calendarRestriction();
-// reservationDetails();
-itSpaCart();
-
-// Nawigacja przejscie
 
 
 
