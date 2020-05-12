@@ -1,10 +1,46 @@
-import $ from 'jquery';
+import $ from "jquery";
 import cartRoom from "../../images/cartRoom.png";
 import cartTreatment from "../../images/cartTreatment.png";
-import { calendarRestriction, reservationDetails,showFinalTotal } from "../cart/booking-logic";
+import {
+  calendarRestriction,
+  reservationDetails,
+  showFinalTotal,
+} from "../cart/booking-logic";
 export const booking = () => {
   const fragment = $(new DocumentFragment());
 
+  // .append(`
+  // <section class="container cart-section my-5">
+  //         <h2 class="section-header">Your shopping cart</h2>
+  //         <div class="cart-row cart-categories">
+  //             <span class="cart-item cart-header cart-column">ITEM</span>
+  //             <span class="cart-price cart-header cart-column">PRICE</span>
+  //             <span class="cart-delete cart-header cart-column"></span>
+  //         </div>
+  //         <div class="cart-items">
+  //             <div class="cart-row">
+  //                 <div class="cart-item cart-column">
+  //                     <img class="cart-item-image mx-3" src='${massage}' width="100" height="100">
+  //                     <span class="cart-item-title">T-Shirt</span>
+  //                 </div>
+  //                 <span class="cart-price cart-column">$19.99</span>
+  //                 <div class="cart-delete cart-column">
+  //                     <button class="btn btn-danger" type="button">REMOVE</button>
+  //                 </div>
+  //             </div>
+  //             <div class="cart-row">
+  //                 <div class="cart-item cart-column">
+  //                     <img class="cart-item-image mx-3" src='${sleep}' width="100" height="100">
+  //                     <span class="cart-item-title">Album 3</span>
+  //                 </div>
+  //                 <span class="cart-price cart-column">$9.99</span>
+  //                 <div class="cart-delete cart-column">
+  //                     <button class="btn btn-danger" type="button">REMOVE</button>
+  //                 </div>
+  //             </div>
+  //         </div>
+  //         <button class="btn btn-dark btn-purchase" type="button">PURCHASE</button>
+  //     </section>`)
   fragment.append(`<header class="booking-header">
     <div class="container-fluid">
         <div class="booking-form-box">
@@ -29,40 +65,7 @@ export const booking = () => {
           </div>
         </div>
     </div>
-    </header>`)
-    // .append(`
-    // <section class="container cart-section my-5">
-    //         <h2 class="section-header">Your shopping cart</h2>
-    //         <div class="cart-row cart-categories">
-    //             <span class="cart-item cart-header cart-column">ITEM</span>
-    //             <span class="cart-price cart-header cart-column">PRICE</span>
-    //             <span class="cart-delete cart-header cart-column"></span>
-    //         </div>
-    //         <div class="cart-items">
-    //             <div class="cart-row">
-    //                 <div class="cart-item cart-column">
-    //                     <img class="cart-item-image mx-3" src='${massage}' width="100" height="100">
-    //                     <span class="cart-item-title">T-Shirt</span>
-    //                 </div>
-    //                 <span class="cart-price cart-column">$19.99</span>
-    //                 <div class="cart-delete cart-column">
-    //                     <button class="btn btn-danger" type="button">REMOVE</button>
-    //                 </div>
-    //             </div>
-    //             <div class="cart-row">
-    //                 <div class="cart-item cart-column">
-    //                     <img class="cart-item-image mx-3" src='${sleep}' width="100" height="100">
-    //                     <span class="cart-item-title">Album 3</span>
-    //                 </div>
-    //                 <span class="cart-price cart-column">$9.99</span>
-    //                 <div class="cart-delete cart-column">
-    //                     <button class="btn btn-danger" type="button">REMOVE</button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //         <button class="btn btn-dark btn-purchase" type="button">PURCHASE</button>
-    //     </section>`)
-        .append(`
+    </header>`).append(`
   <section class="container summary-section my-5">
     <div class="card">
       <div class="card-header">
@@ -93,11 +96,8 @@ export const booking = () => {
   </section>
     `);
 
-calendarRestriction();
-reservationDetails(showFinalTotal);
+  calendarRestriction();
+  reservationDetails(showFinalTotal);
 
   return fragment;
 };
-
-
-
