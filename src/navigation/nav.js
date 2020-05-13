@@ -2,9 +2,9 @@ import $ from "jquery";
 import { routeChange } from "../router/route-change";
 import { routes } from "../router/routes";
 import { navItem } from "./nav-item";
-import { itSpaCart } from "../cart/it-spa-cart";
 
 export const nav = () => {
+  //function to change navbar to active
 
   $(function () {
     $(window).on("scroll", function () {
@@ -16,6 +16,17 @@ export const nav = () => {
     });
   });
 
+  // function to close navbar after click
+
+  $(document).ready(function () {
+    $(document).click(function (event) {
+      const clickover = $(event.target);
+      const opened = $(".navbar-collapse").hasClass("show");
+      if (opened === true && !clickover.hasClass("navbar-toggler")) {
+        $(".navbar-toggler").click();
+      }
+    });
+  });
 
   const navbar = $(`
     <nav class="navbar navbar-expand-md fixed-top ">
@@ -44,8 +55,4 @@ export const nav = () => {
   navbar.find("ul").append(navItems).append(cart);
 
   return navbar;
-
-
-
-  
 };

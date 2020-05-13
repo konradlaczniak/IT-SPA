@@ -1,13 +1,12 @@
-import $ from 'jquery';
-import { routes } from './routes';
-import { oops } from '../views';
-import { routeChange } from './route-change';
+import $ from "jquery";
+import { routes } from "./routes";
+import { oops } from "../views";
+import { routeChange } from "./route-change";
 
 export class Router {
-
   constructor() {
     this.body = $(document.body);
-    this.outlet = $('main');
+    this.outlet = $("main");
     this.routes = routes;
   }
 
@@ -28,7 +27,7 @@ export class Router {
   }
 
   get(path) {
-    return this.routes.find(route => route.path === path );
+    return this.routes.find((route) => route.path === path);
   }
 
   has(path) {
@@ -47,8 +46,6 @@ export class Router {
       this.outlet.empty().append(html);
     }
 
-    history.pushState(data, '', path);
+    history.pushState(data, "", path);
   }
-
-
 }

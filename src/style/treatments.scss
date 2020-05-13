@@ -7,38 +7,52 @@
     display: flex;
     align-items: center;
     text-align: center;
-    .treatments-title{
+
+    .treatments-title {
         position: absolute;
         top: 40%;
         left: 25%;
         color: white;
-        h1{
+
+        h1 {
             font-size: 4rem;
-            color:#c59d5f;
+            color: #c59d5f;
             letter-spacing: 2px;
             text-decoration: overline;
         }
-        h5{
+
+        h5 {
             font-size: 1.5rem;
         }
     }
 }
 
-.treatmentsCategory{
+.treatmentsCategory:hover {
+    .main-treatment-card {
+        opacity: 0.9;
+        transform: scale(1.05);
+
+    }
+}
+
+.treatmentsCategory {
 
     width: 85%;
     margin-bottom: 2rem;
+
 
     .main-treatment-card {
         height: 30vh;
         object-fit: cover;
         object-position: 0 85%;
+        opacity: 1;
+        transition: .2s ease-in-out;
     }
 
     .treatments-tab-title {
         position: relative;
         height: 25vh;
-        
+
         .btn {
             position: absolute;
             bottom: 15%;
@@ -52,32 +66,43 @@
 
 
 .treatments-direct-title {
-    position:relative;
-    
-    .btn{
-    width:100%;
-    padding:0;
-    box-shadow: none;
+    position: relative;
+
+    .btn {
+        width: 100%;
+        padding: 0;
+        box-shadow: none;
     }
-    .treatment-item-head{
+
+    .treatment-item-head {
         display: flex;
         align-items: center;
-        width:100%;
+        width: 100%;
         justify-content: space-between;
-        padding:0.5rem;
-        .treatment-item-info{
-            display:flex;
+        padding: 0.5rem;
+        transition: .2s ease-in-out;
+        opacity: 0.75;
+
+        .treatment-item-info {
+            display: flex;
+
             .treatment-item-time,
             .treatment-item-price {
                 margin-right: 3rem;
             }
         }
     }
-        .icon{
-            font-size: 2rem;
-            // color: white;
-        }
-    
+
+    .treatment-item-head:hover {
+        opacity: 1;
+
+    }
+
+    .icon {
+        font-size: 2rem;
+        // color: white;
+    }
+
 }
 
 
@@ -95,15 +120,18 @@
 
 .category-title {
     color: white;
+    transition: .2s ease-in-out;
 }
 
 .category-title:hover {
     color: #c59d5f;
+
 }
 
 .treat-btn {
     margin-bottom: 2rem;
 }
+
 // smooth scroll button 
 
 .demo_1 a {

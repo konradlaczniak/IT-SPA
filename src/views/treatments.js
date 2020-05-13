@@ -1,15 +1,22 @@
-import $ from 'jquery';
-import { treatmentsListBody,treatmentsListFace,treatmentsListHAL  } from './treatments-list';
-import { treatmentsArea } from './Treatments-area';
+import $ from "jquery";
+import {
+  treatmentsListBody,
+  treatmentsListFace,
+  treatmentsListHAL,
+} from "./treatments-list";
+import { treatmentsArea } from "./Treatments-area";
 import { treatmentBook } from "../cart/booking-logic";
 import { showTotals } from "../cart/booking-logic";
 import { addItemToCart } from "../cart/booking-logic";
 
 export const treatments = () => {
+  window.scroll(0, 0);
+
   const fragment = $(new DocumentFragment());
 
   fragment
-    .append(`<header class="treatments-header">
+    .append(
+      `<header class="treatments-header">
     <div class="container-fluid">
 	    <div class="head_2">
         <section id="scroll-button_1" class="demo_1">
@@ -25,8 +32,10 @@ export const treatments = () => {
         </div>
       </div>
     </div>
-    </header>`)
-    .append(`<section id="section-info">
+    </header>`
+    )
+    .append(
+      `<section id="section-info">
 	<div class="container-fluid p-5">
 		<div class="container-hotel-info">
 			<div class="row p-3">
@@ -62,28 +71,37 @@ export const treatments = () => {
 		</div>
 	</div>
 </section>
-`)
+`
+    )
 
-.append(`
+    .append(
+      `
 <section class="treatments-categories">
 	<div class="accordion treatments-categories-list" id="accordionExample">
 	
     </div>
 </section>
 
-`)
-.find('.treatments-categories-list').append(treatmentsArea())
-.find('#collapseMainOne').append(treatmentsListBody())
-.parent().next().find('#collapseMainTwo').append(treatmentsListFace())
-.parent().next().find('#collapseMainThree').append(treatmentsListHAL())
-// fragment.find('#collapseMainTwo').append(treatmentsListFace())
-// fragment.find('#collapseMainThree').append(treatmentsListHAL())
+`
+    )
+    .find(".treatments-categories-list")
+    .append(treatmentsArea())
+    .find("#collapseMainOne")
+    .append(treatmentsListBody())
+    .parent()
+    .next()
+    .find("#collapseMainTwo")
+    .append(treatmentsListFace())
+    .parent()
+    .next()
+    .find("#collapseMainThree")
+    .append(treatmentsListHAL());
+  // fragment.find('#collapseMainTwo').append(treatmentsListFace())
+  // fragment.find('#collapseMainThree').append(treatmentsListHAL())
 
-setTimeout(function () {
-  treatmentBook(showTotals,addItemToCart);
-}, 1000);
-  
-
+  setTimeout(function () {
+    treatmentBook(showTotals, addItemToCart);
+  }, 1000);
 
   return fragment;
 };

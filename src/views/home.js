@@ -4,6 +4,8 @@ import background2 from "../../images/carousel1.jpg";
 import background3 from "../../images/carousel2.jpg";
 
 export const home = () => {
+  window.scroll(0, 0);
+
   const fragment = $(new DocumentFragment());
 
   fragment.append(`
@@ -36,7 +38,7 @@ export const home = () => {
 			<div class="row p-3">
 				<div class="col-lg-6 p-2 hotel-title">
 					<h1>Hotel IT SPA</h1>
-					<h4>Twoja strefa chillout w Programowie</h4>
+					<h4>Your chillout zone in Programowo</h4>
 				</div>
 				<div class="col-lg-6 p-2 features">
 						<div class="icons">
@@ -97,22 +99,86 @@ export const home = () => {
 					</figure>
 			</div>
 			<div class="col-lg-6 p-2">
-				<h2>Restauracja</h2>
+				<h2>Restaurant</h2>
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime pariatur dignissimos placeat ducimus sint, assumenda consectetur itaque fugiat eos velit doloremque qui provident ipsum excepturi ipsam vero. Similique, odit voluptatibus?</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ad dicta fugit enim molestiae nemo ratione excepturi sed eligendi culpa reiciendis ipsum, vel atque aut! Veniam minima repudiandae ipsam fugiat!</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quam harum voluptate architecto laudantium alias est eos veniam ipsum, vitae veritatis quo necessitatibus voluptatem deserunt obcaecati aliquam sequi quaerat sint.</p>
 				<br>
-				<a href="#" class="btn btn-dark">Dowiedz się więcej</a>
+				<button class="btn btn-dark"data-toggle="modal" data-target="#moreRestaurantModal">Read more</button>
+				<div class="modal fade" id="moreRestaurantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  					<div class="modal-dialog modal-dialog-scrollable" role="document">
+   					 <div class="modal-content">
+   					   <div class="modal-header">
+   					     <h5 class="modal-title" id="exampleModalScrollableTitle"><b>Restaurant</b></h5>
+   					     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   					       <span aria-hidden="true">&times;</span>
+   					     </button>
+   					   </div>
+   					   <div class="modal-body">
+   					    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus corporis culpa nisi molestiae adipisci perspiciatis.</p>
+						<br>
+						<ul>
+						  <li>Lorem ipsum dolor sit amet consectetur.</li>
+						  <li>Lorem ipsum dolor sit amet consectetur.</li>
+						  <li>Lorem ipsum dolor sit amet consectetur.</li>
+						</ul>
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit odit, tempora voluptate quia cumque ab
+						  nostrum accusamus sapiente iusto ipsam, saepe quod debitis eos provident?</p>
+						  <p><b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, vel!</b></p>
+						  <br>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus corporis culpa nisi molestiae adipisci
+						  perspiciatis.</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus corporis culpa nisi molestiae adipisci
+						  perspiciatis.</p>
+   					   </div>
+   					   <div class="modal-footer">
+   					     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   					   </div>
+   					 </div>
+  					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row mt-5 bg2" >
 			<div class="col-lg-6 p-2 ">
-				<h2>Restauracja</h2>
+				<h2>SPA & Wellness</h2>
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime pariatur dignissimos placeat ducimus sint, assumenda consectetur itaque fugiat eos velit doloremque qui provident ipsum excepturi ipsam vero. Similique, odit voluptatibus?</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ad dicta fugit enim molestiae nemo ratione excepturi sed eligendi culpa reiciendis ipsum, vel atque aut! Veniam minima repudiandae ipsam fugiat!</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quam harum voluptate architecto laudantium alias est eos veniam ipsum, vitae veritatis quo necessitatibus voluptatem deserunt obcaecati aliquam sequi quaerat sint.</p>
 				<br>
-				<a href="#" class="btn btn-dark">Dowiedz się więcej</a>
+				<button class="btn btn-dark btn-dark"data-toggle="modal" data-target="#moreSpaWellnessModal">Read more</button>
+				<div class="modal fade" id="moreSpaWellnessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  					<div class="modal-dialog modal-dialog-scrollable" role="document">
+   					 <div class="modal-content">
+   					   <div class="modal-header">
+   					     <h5 class="modal-title" id="exampleModalScrollableTitle"><b>SPA & Wellness</b></h5>
+   					     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+   					       <span aria-hidden="true">&times;</span>
+   					     </button>
+   					   </div>
+   					   <div class="modal-body">
+   					    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus corporis culpa nisi molestiae adipisci perspiciatis.</p>
+						<br>
+						<ul>
+						  <li>Lorem ipsum dolor sit amet consectetur.</li>
+						  <li>Lorem ipsum dolor sit amet consectetur.</li>
+						  <li>Lorem ipsum dolor sit amet consectetur.</li>
+						</ul>
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit odit, tempora voluptate quia cumque ab
+						  nostrum accusamus sapiente iusto ipsam, saepe quod debitis eos provident?</p>
+						  <p><b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, vel!</b></p>
+						  <br>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus corporis culpa nisi molestiae adipisci
+						  perspiciatis.</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus corporis culpa nisi molestiae adipisci
+						  perspiciatis.</p>
+   					   </div>
+   					   <div class="modal-footer">
+   					     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   					   </div>
+   					 </div>
+  					</div>
+				</div>
 			</div>
 			<div class="col-lg-6 p-2">
 					<figure class="figure">
@@ -123,19 +189,6 @@ export const home = () => {
 	</div>
 </section>
 `);
-
-//   $(function () {
-//     $("a[href*=#]").on("click", function (e) {
-//       e.preventDefault();
-//       $("html, body").animate(
-//         {
-//           scrollTop: $($(this).attr("href")).offset().top,
-//         },
-//         500,
-//         "linear"
-//       );
-//     });
-//   });
 
   return fragment;
 };

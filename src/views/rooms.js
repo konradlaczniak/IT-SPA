@@ -1,16 +1,18 @@
-import $ from 'jquery';
-import { roomsList } from './rooms-list';
-import background from '../../images/background.jpg';
+import $ from "jquery";
+import { roomsList } from "./rooms-list";
+import background from "../../images/background.jpg";
 import { roomBook } from "../cart/booking-logic";
 import { showTotals } from "../cart/booking-logic";
 import { addItemToCart } from "../cart/booking-logic";
 
 export const rooms = () => {
+  window.scroll(0, 0);
+
   const fragment = $(new DocumentFragment());
-  
 
   fragment
-  .append(`<header class="room-header">
+    .append(
+      `<header class="room-header">
     <div class="container-fluid">
 	    <div class="row room-head-bg">
         <section id="section04" class="demo">
@@ -18,22 +20,24 @@ export const rooms = () => {
         </section>
         <div class="room-title">
           <hgroup>
-            <h1> Pokoje </h1>
-            <h5> Wygoda i komfort </h5>
+            <h1> Rooms </h1>
+            <h5> Convenience and comfort </h5>
             <h5> & </h5>
-            <h5> Bogate wyposażenie </h5>
+            <h5> High quality equipment </h5>
           </hgroup>
         </div>
       </div>
     </div>
-    </header>`)
-.append(`<section id="section-info">
+    </header>`
+    )
+    .append(
+      `<section id="section-info">
 	<div class="container-fluid p-5">
 		<div class="container-hotel-info">
 			<div class="row p-3">
 				<div class="col-lg-6 p-2">
-					<h1>Pokoje</h1>
-					<h4>Twoje miejsce wypoczynku</h4>
+					<h1>Rooms</h1>
+					<h4>Your place of relax</h4>
 				</div>
 				<div class="col-lg-6 p-2">
 						<div class="icons">
@@ -60,22 +64,19 @@ export const rooms = () => {
 						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo velit labore consequatur alias dignissimos quaerat sequi omnis nihil eius. Officiis voluptatibus facilis aspernatur fugiat veritatis.</p>
 				</div>
 			</div>
-      <div class="rooms-group row p-4">
+      <div class="rooms-group row px-4">
       </div>
 		</div>
 	</div>
 </section>
-`).find('.rooms-group').append(roomsList());
+`
+    )
+    .find(".rooms-group")
+    .append(roomsList());
 
-setTimeout(function(){
-	roomBook(showTotals, addItemToCart);},1000)
-  
-
-
-
-	
+  setTimeout(function () {
+    roomBook(showTotals, addItemToCart);
+  }, 1000);
 
   return fragment;
 };
-
-

@@ -2,7 +2,6 @@ import $ from "jquery";
 import cartRoom from "../../images/cartRoom.png";
 import cartTreatment from "../../images/cartTreatment.png";
 import { Cart } from "./cart";
-import { itSpaCart } from "./it-spa-cart";
 
 export function calendarRestriction() {
   //Display Only Date from today and till 1 year from now//
@@ -42,15 +41,14 @@ export function calendarRestriction() {
 
 export function reservationDetails(showFinalTotal) {
   $(function () {
-    // print resrvation data if exists
+    // create reservation details cookie
+    // print resrvation details if exists
 
     const reservation = new Cart("IT_SPA_RESERVATION");
-    const details = {};
-    let cart_reservation_time = [];
-    cart_reservation_time = reservation.get();
-    console.log(cart_reservation_time);
 
-    if (cart_reservation_time.length > 0) {
+    let cart_reservation_time = reservation.get();
+
+    if (cart_reservation_time && cart_reservation_time.length > 0) {
       const arrival = $(".arrival-date-summ").html(
         cart_reservation_time[cart_reservation_time.length - 1].arrDate
       );
@@ -67,47 +65,47 @@ export function reservationDetails(showFinalTotal) {
 
     // print reservation items if exists
 
-    const reservation_cart = new Cart("IT_SPA_RESERVATION_CART");
-    let cart_reservation_items = [];
-    cart_reservation_items = reservation_cart.get();
+    const reservation_cart = new Cart("IT_SPA_ITEMS_CHECKOUT");
+    let cart_reservation_items = reservation_cart.get();
 
-    if (cart_reservation_items.length > 0) {
-      cart_reservation_items.forEach(function (item, index) {
+    if (cart_reservation_items && cart_reservation_items.length > 0) {
+      cart_reservation_items.forEach(function (item) {
         const condition = item.path;
-        console.log(condition);
+        const cartItems = $(".itemSummary");
+
         if (condition.includes("Room")) {
-          console.log(1);
-          const itemCart = $(`<div class="cart-row">
-                        <div class="cart-item-info cart-column">
-                            <img class="cart-item-image mx-3" src='${item.path}' width="100" height="100">
-                            <span class="cart-item-title">${item.title}</span>
-                        </div>
-                        <span class="cart-price cart-price-room cart-column">$ ${item.price} (price per night)</span>
-                        </div>`);
-          const cartItems = $(".itemSummary");
+          const itemCart = $(`
+          <div class="cart-row">
+            <div class="cart-item-info cart-column">
+              <img class="cart-item-image mx-3" src='${item.path}' width="100" height="100">
+              <span class="cart-item-title">${item.title}</span>
+            </div>
+            <span class="cart-price cart-price-room cart-column">$ ${item.price} (price per night)</span>
+          </div>`);
           cartItems.append(itemCart);
-          showFinalTotal();
         } else if (condition.includes("Treatment")) {
-          const itemCart = $(`<div class="cart-row">
-                        <div class="cart-item-info cart-column">
-                            <img class="cart-item-image mx-3" src='${item.path}' width="100" height="100">
-                            <span class="cart-item-title">${item.title}</span>
-                        </div>
-                        <span class="cart-price cart-price-treatment cart-column">$ ${item.price} (price per treatment)</span>
-                        </div>`);
-          const cartItems = $(".itemSummary");
+          const itemCart = $(`
+          <div class="cart-row">
+            <div class="cart-item-info cart-column">
+              <img class="cart-item-image mx-3" src='${item.path}' width="100" height="100">
+              <span class="cart-item-title">${item.title}</span>
+            </div>
+            <span class="cart-price cart-price-treatment cart-column">$ ${item.price} (price per treatment)</span>
+          </div>`);
           cartItems.append(itemCart);
-          showFinalTotal();
         }
+        showFinalTotal();
       });
     }
 
+    // adding reservation details from form to summary reservation
+
     const button = $(".bookBtn");
+
     button.on("click", function (event) {
       const arrDate = $("#arrival-date").val();
       const depDate = $("#departure-date").val();
       const guestsNum = $("#numGuests").val();
-      console.log(!arrDate, !depDate);
 
       if (arrDate && depDate) {
         const arrival = $(".arrival-date-summ").html(arrDate);
@@ -121,16 +119,15 @@ export function reservationDetails(showFinalTotal) {
         const nights = $(".nights-summ").html(differenceInDays);
 
         // Adding items to cookies
-
+        cart_reservation_time = [];
+        let details = {};
         details.arrDate = arrDate;
         details.depDate = depDate;
         details.guestsNum = guestsNum;
         details.nights = differenceInDays;
-        cart_total = [];
-        cart_total.push(details);
 
-        console.log(cart_total, cart_total[0]);
-        reservation.set(cart_total);
+        cart_reservation_time.push(details);
+        reservation.set(cart_reservation_time);
 
         const alert = $(`
       <div class="alert alert-success alert-dismissible fade show alert-position" role="alert">
@@ -139,7 +136,7 @@ export function reservationDetails(showFinalTotal) {
         </button>
         <strong>Success! </strong> 
         <br><br>
-        <p>You should check your reservation below.</p>
+        <p>Now check your reservation below.</p>
       </div>`);
 
         const header = $(".booking-header").append(alert);
@@ -155,7 +152,7 @@ export function reservationDetails(showFinalTotal) {
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <strong>fill in the missing data!</strong> 
+        <strong>Fill out missing data!</strong> 
       </div>`);
 
         const header = $(".booking-header").append(alert);
@@ -165,18 +162,101 @@ export function reservationDetails(showFinalTotal) {
         $(".bookBtn").css("border", "1px solid grey");
       }
     });
+
+    // total clear
+
+    function reservationClear(event) {
+      const arrDate = $("#arrival-date").val("");
+      const depDate = $("#departure-date").val("");
+
+      $(".booking-form-box").css("border", "1px solid grey");
+      $(".form-control").css("border", "1px solid grey");
+      $(".bookBtn").css("border", "1px solid grey");
+
+      const arrival = $(".arrival-date-summ").html("");
+      const departure = $(".departure-date-summ").html("");
+      const guests = $(".guests-summ").html("");
+      const nights = $(".nights-summ").html("");
+
+      reservation.empty();
+      clearCart(event, reservation_cart);
+      clearReservationCart(event);
+    }
+
+    // reservation confirmation
+
+    const button_purchase = $(".btn-purchase");
+    button_purchase.on("click", function () {
+      const arrival = $(".arrival-date-summ").html();
+      const total_price = $(".cart-total-price").html();
+      console.log(Boolean(arrival), arrival);
+      console.log(Boolean(total_price === "$ 0"), total_price);
+
+      if (arrival && total_price !== "$ 0") {
+        reservationClear(event);
+
+        const alert = $(`<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">IT SPA </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your booking at IT-SPA hotel has been confirmed. </p><br>
+        <p><b>See you soon!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>`);
+
+        const header = $(".button-holder").append(alert);
+      } else {
+        const alert = $(`
+      <div class="alert alert-warning alert-dismissible fade show alert-position alert-fail" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>You cannot complete reservation without all the information</strong> 
+      </div>`);
+
+        const header = $(".booking-header").append(alert);
+      }
+      console.log("clicked");
+    });
+
+    // total clear
+
+    const button_reservation_clear = $(".btn-reservation-clear");
+    button_reservation_clear.on("click", function () {
+      reservationClear(event);
+      const alert = $(`
+      <div class="alert alert-success alert-dismissible fade show alert-position alert-fail" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Done! You can start your booking from the beginning.</strong> 
+      </div>`);
+
+      const header = $(".booking-header").append(alert);
+    });
   });
 }
 
 export function cartLogic(showTotals, showFinalTotal) {
   $(function () {
-    console.log("cartLOGIC");
     // read items from cart
     const cart = new Cart("IT_SPA_CART");
     let cart_total = cart.get();
 
-    cart_total.forEach(function (item) {
-      const newItem = $(`<div class="cart-item d-flex justify-content-between text-capitalize my-3">
+    if (cart_total && cart_total.length > 0) {
+      cart_total.forEach(function (item) {
+        const newItem = $(`<div class="cart-item d-flex justify-content-between text-capitalize my-3">
                 <img src="${item.photo}" class="img-fluid" id="item-img" alt="">
                 <div class="cart-item-text">
                 <p id="cart-item-title" class="font-weight-bold mb-0">${item.title}</p>
@@ -188,17 +268,13 @@ export function cartLogic(showTotals, showFinalTotal) {
                 </span>
             </div>`);
 
-      const items_container = $(".cart-total-container");
-      items_container.before(newItem);
-      showTotals();
-    });
+        const items_container = $(".cart-total-container");
+        items_container.before(newItem);
+        showTotals();
+      });
+    }
 
-    const reservation_cart = new Cart("IT_SPA_RESERVATION_CART");
-    const details = {};
-    cart_total_reservation = [];
-    let cart_total_reservation = reservation_cart.get();
-    // const test = cart_total_reservation[0].path;
-    // console.log(test);
+    // cart hide and show
 
     const cartInfo = $("#cart-info");
     const cartBar = $("#cart");
@@ -206,6 +282,8 @@ export function cartLogic(showTotals, showFinalTotal) {
     cartInfo.on("click", function () {
       cartBar.toggleClass("show-cart");
     });
+
+    // functions for clearing of cart and reservation
 
     const clearCartItemsButton = $("#clear-cart");
     clearCartItemsButton[0].addEventListener("click", clearCart);
@@ -225,13 +303,18 @@ export function cartLogic(showTotals, showFinalTotal) {
       showFinalTotal();
     }
 
+    // cookie creating of checkouted items
+    // checkout - making cart empty, pass items to reservation details
+
+    const reservation_cart = new Cart("IT_SPA_ITEMS_CHECKOUT");
+    let cart_total_reservation = reservation_cart.get();
+
     const checkoutButton = $("#checkout");
     checkoutButton[0].addEventListener("click", checkout);
 
     function checkout(event) {
       event.preventDefault();
       const cartItems = document.getElementsByClassName("cart-item");
-      console.log(cartItems);
       cart_total_reservation = [];
       clearReservationCart(event);
 
@@ -244,55 +327,45 @@ export function cartLogic(showTotals, showFinalTotal) {
         const title =
           item.firstElementChild.nextElementSibling.firstElementChild.innerText;
 
+        const details = {};
         details.path = finalPath;
         details.price = price;
         details.title = title;
 
         cart_total_reservation.push(details);
-
-        console.log(cart_total, cart_total[0], cart_total[1]);
         reservation_cart.set(cart_total_reservation);
 
-        console.log(finalPath.includes("Room"));
-
-        // if (finalPath.includes("Room")) {
-        //     const add = $('<span>(price per night)</span>')
-        //     $('.cart-price').text('${price})
-        // } else if (finalPath.includes("Treatment")) {
-        //     const add = $("<span>(price per treatment)</span>");
-        //     $(".cart-price").append(add);
-        // }
-
         if (finalPath.includes("Room")) {
-          console.log(1);
-          const itemCart = $(`<div class="cart-row">
-                        <div class="cart-item-info cart-column">
-                            <img class="cart-item-image mx-3" src='${finalPath}' width="100" height="100">
-                            <span class="cart-item-title">${title}</span>
-                        </div>
-                        <span class="cart-price cart-price-room cart-column">$ ${price} (price per night)</span>
-                        </div>`);
+          const itemCart = $(`
+          <div class="cart-row">
+            <div class="cart-item-info cart-column">
+              <img class="cart-item-image mx-3" src='${finalPath}' width="100" height="100">
+              <span class="cart-item-title">${title}</span>
+            </div>
+            <span class="cart-price cart-price-room cart-column">$ ${price} (price per night)</span>
+          </div>`);
           const cartItems = $(".itemSummary");
           cartItems.append(itemCart);
-          clearCart(event);
-          showFinalTotal();
         } else if (finalPath.includes("Treatment")) {
-          const itemCart = $(`<div class="cart-row">
-                        <div class="cart-item-info cart-column">
-                            <img class="cart-item-image mx-3" src='${finalPath}' width="100" height="100">
-                            <span class="cart-item-title">${title}</span>
-                        </div>
-                        <span class="cart-price cart-price-treatment cart-column">$ ${price} (price per treatment)</span>
-                        </div>`);
+          const itemCart = $(`
+          <div class="cart-row">
+            <div class="cart-item-info cart-column">
+              <img class="cart-item-image mx-3" src='${finalPath}' width="100" height="100">
+              <span class="cart-item-title">${title}</span>
+            </div>
+            <span class="cart-price cart-price-treatment cart-column">$ ${price} (price per treatment)</span>
+          </div>`);
           const cartItems = $(".itemSummary");
           cartItems.append(itemCart);
-          clearCart(event);
-          showFinalTotal();
         }
       });
+      clearCart(event);
+      showFinalTotal();
     }
   });
 }
+
+// function to calculate final cost of the reservation
 
 export function showFinalTotal() {
   const totalRoom = [];
@@ -301,8 +374,6 @@ export function showFinalTotal() {
   const itemtreatment = $(".cart-price-treatment");
   const nights = $(".nights-summ");
   const nightsNumber = Number(nights.text());
-
-  // console.log(Number(nightsNumber.text()));
 
   itemRoom.each(function (index, element) {
     totalRoom.push(parseFloat($(element).text().slice(1).slice(0, -17).trim()));
@@ -313,8 +384,6 @@ export function showFinalTotal() {
       parseFloat($(element).text().slice(1).slice(0, -21).trim())
     );
   });
-
-  console.log(totalRoom, totalTreatment);
 
   const totalMoneyRooms = totalRoom.reduce(function (totalRoom, item) {
     totalRoom += item;
@@ -331,10 +400,10 @@ export function showFinalTotal() {
   0);
 
   const finalMoney = totalMoneyTreatments + totalMoneyRooms * nightsNumber;
-
-  console.log(totalRoom, totalTreatment, finalMoney);
   $(".cart-total-price").text("$ " + finalMoney);
 }
+
+// function to calculate final cost of cart
 
 export function showTotals() {
   const total = [];
@@ -364,6 +433,21 @@ export function showTotals() {
   }
 }
 
+export function clearCart(event, cart) {
+  event.preventDefault();
+  const cartItemsContainer = $(".cart-item");
+  cartItemsContainer.remove();
+  showTotals();
+  cart.empty();
+}
+
+export function clearReservationCart(event) {
+  event.preventDefault();
+  const cartItemsContainer = $(".cart-row");
+  cartItemsContainer.remove();
+  showFinalTotal();
+}
+
 export function addItemToCart(photo, cart_item) {
   const newItem = $(`<div class="cart-item d-flex justify-content-between text-capitalize my-3">
                 <img src="${photo}" class="img-fluid" id="item-img" alt="">
@@ -389,14 +473,13 @@ export function addItemToCart(photo, cart_item) {
 
   const cart = new Cart("IT_SPA_CART");
   const details = {};
-  let cart_total = [];
-  cart_total = cart.get();
+  // let cart_total = [];
+  let cart_total = cart.get();
   details.photo = photo;
   details.title = cart_item.title;
   details.price = cart_item.price;
-  cart_total.push(details);
+
   cart.set(cart_total);
-  console.log(cart_total);
 
   // Removing of items in cart
 

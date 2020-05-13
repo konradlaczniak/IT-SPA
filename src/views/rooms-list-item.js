@@ -1,11 +1,10 @@
-import $ from 'jquery';
-import image from '../../images/room1.jpg';
+import $ from "jquery";
+import image from "../../images/room1.jpg";
 
 export const roomsListItem = (room) => {
-    const li = $(`<li class="list-group-item"></li>`);
-    
-    
-    li.html(`<div class="container room-details">
+  const li = $(`<li class="list-group-item"></li>`);
+
+  li.html(`<div class="container room-details">
         <figure>
 	        <img src='${image}' class="img-fluid" alt="room1">
         </figure>
@@ -18,11 +17,9 @@ export const roomsListItem = (room) => {
                     <div class="card-content-details-more"><img src="https://img.icons8.com/small/64/000000/bed.png"> ${room.beds}</div>
                 </div>
             </div>
-            <button class="btn btn-dark shop-item-button">Zarezerwuj</button>
+            <button class="btn btn-dark shop-item-button">Book a room</button>
         </div>
     </div>`);
 
-
-
-    return li;
+  return li;
 };

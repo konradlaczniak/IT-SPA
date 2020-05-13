@@ -3,17 +3,18 @@
     background-size: cover;
     background-position: 50% 0%;
     background-attachment: fixed;
-    height: 75vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
 
-    .alert-position{
-        z-index:2;
-        position: absolute;
+    .alert-position {
+        z-index: 2;
+        position: fixed;
         left: 50%;
-        transform: translate(-50%, -50%);
-        
+        bottom: 50%;
+        transform: translate(-50%, 50%);
+
     }
 
     .alert-fail {
@@ -21,7 +22,7 @@
     }
 
     .booking-form-box {
-        max-width:350px;
+        max-width: 350px;
         border: 1px solid grey;
         border-radius: 2px;
         margin: 0 auto 0;
@@ -29,15 +30,17 @@
         .booking-form {
             padding: 0 1rem 1rem;
 
-            label{
-                color:#fff;
+            label {
+                color: #fff;
                 margin-top: 1rem;
                 margin-bottom: 1rem;
             }
-            input::placeholder{
+
+            input::placeholder {
                 color: #fff !important;
             }
-            .form-control{
+
+            .form-control {
                 font-size: 1rem;
                 border: 1px solid grey;
                 border-radius: 2px;
@@ -45,21 +48,25 @@
                 background: transparent;
                 box-shadow: none;
             }
+
             .select-date::-webkit-inner-spin-button,
             .select-date::-webkit-inner-spin-button {
                 -webkit-appearance: none;
                 margin: 0;
             }
-            .select-date::-webkit-calendar-picker-indicator{
+
+            .select-date::-webkit-calendar-picker-indicator {
                 background: transparent;
             }
+
             .bookBtn {
-                width:100%;
+                width: 100%;
                 margin-top: 1rem;
                 border: 1px solid grey;
                 background: transparent;
             }
-            .bookBtn:hover{
+
+            .bookBtn:hover {
                 background-color: #fff;
                 color: #000;
                 transition: 0.5s;
@@ -70,7 +77,7 @@
 }
 
 .summary-section {
-    
+
     border: 1px solid #d2d7da;
     padding: 0;
 
@@ -102,7 +109,7 @@
 
         .cart-total-price {
             color: #333;
-            font-size: 1.1em;
+            font-size: 1.5em;
         }
     }
 
@@ -117,7 +124,10 @@
     // justify-content: center;
     // }
 
-    .card-header{
+
+
+
+    .card-header {
         background-color: #c59d5f;
         padding: 0.75rem 1.25rem;
     }
@@ -128,14 +138,14 @@
         margin-right: 1.5em;
         padding-bottom: 10px;
         margin-top: 10px;
-        
+
     }
 
     .cart-row {
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #d2d7da;
-        
+
     }
 
     .cart-row:last-child {
@@ -146,9 +156,7 @@
         border-bottom: 1px solid darkgray;
     }
 
-    .cart-item-info {
-        
-    }
+
 
     .cart-price {
         font-size: 1.2em;
@@ -160,19 +168,40 @@
         margin-left: .5em;
         font-size: 1.2em;
     }
+
     .cart-item-image {
         width: 75px;
         height: auto;
         border-radius: 10px;
-    }  
+    }
 
 }
 
+.button-holder {
+    display: flex;
+}
+
 .btn-purchase {
-    display: block;
+
     margin: 2rem auto 2rem auto;
     font-size: 1.75em;
 }
 
+.btn-reservation-clear {
+
+    margin: 2rem auto 2rem auto;
+    font-size: 1.75em;
+}
+
+@media (max-width: 991.98px) {
+    .button-holder {
+        display: flex;
+        flex-wrap: wrap;
+
+        .btn {
+            margin-top: 0.5rem;
+        }
+    }
 
 
+}
