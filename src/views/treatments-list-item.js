@@ -1,12 +1,12 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 export const treatmentsItem = (treatment) => {
-    const div = $(`<div class="card"></div>`);
+  const div = $(`<div class="card"></div>`);
 
-    div.html(`
+  div.html(`
     <div class="card-header" id="heading${treatment.id}">
         <div class="treatments-direct-title">
-            <button id="button-trn" class="btn item-info" type="button" data-toggle="collapse" data-target="#collapse${treatment.id}"
+            <button id="button-trn" class="btn item-info collapsed" type="button" data-toggle="collapse" data-target="#collapse${treatment.id}"
               aria-expanded="false" aria-controls="collapseMain${treatment.id}"> 
                 <div class="treatment-item-head">
                     <h4 class="mb-0"> <span class="icon"></span><span class="treatmens-name"> ${treatment.name}</span></h4> 
@@ -32,7 +32,7 @@ export const treatmentsItem = (treatment) => {
             aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
         <button class="btn btn-dark shop-item-button treat-btn">Buy it!</button>
-    </div>`)
-    
-    return div;
+    </div>`);
+
+  return div;
 };

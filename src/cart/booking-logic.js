@@ -227,7 +227,6 @@ export function reservationDetails(showFinalTotal) {
 
         const header = $(".booking-header").append(alert);
       }
-      console.log("clicked");
     });
 
     // total clear
@@ -278,8 +277,16 @@ export function cartLogic(showTotals, showFinalTotal) {
 
     const cartInfo = $("#cart-info");
     const cartBar = $("#cart");
+    const checkoutBtn = $("#checkout");
+    const clearBtn = $("#clear-cart");
 
     cartInfo.on("click", function () {
+      cartBar.toggleClass("show-cart");
+    });
+    checkoutBtn.on("click", function () {
+      cartBar.toggleClass("show-cart");
+    });
+    clearBtn.on("click", function () {
       cartBar.toggleClass("show-cart");
     });
 
@@ -479,14 +486,21 @@ export function addItemToCart(photo, cart_item) {
   details.title = cart_item.title;
   details.price = cart_item.price;
 
+  cart_total.push(details);
   cart.set(cart_total);
 
   // Removing of items in cart
 
-  for (let i = 0; i < removeCartItemButtons.length; i++) {
-    removeCartItemButtons[i].originalindex = i;
-    removeCartItemButtons[i].addEventListener("click", removeCartItem);
-  }
+  removeCartItemsFromCart();
+}
+
+export function removeCartItemsFromCart() {
+  const removeCartItemButtons = document.getElementsByClassName(
+    "cart-item-remove"
+  );
+  console.log(removeCartItemButtons);
+  const cart = new Cart("IT_SPA_CART");
+  let cart_total = cart.get();
 
   function removeCartItem(event) {
     const i = this.originalindex;
@@ -495,6 +509,11 @@ export function addItemToCart(photo, cart_item) {
     const buttonClicked = event.currentTarget;
     buttonClicked.parentElement.remove();
     showTotals();
+  }
+
+  for (let i = 0; i < removeCartItemButtons.length; i++) {
+    removeCartItemButtons[i].originalindex = i;
+    removeCartItemButtons[i].addEventListener("click", removeCartItem);
   }
 }
 

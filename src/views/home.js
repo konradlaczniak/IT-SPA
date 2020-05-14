@@ -140,7 +140,7 @@ export const home = () => {
 			</div>
 		</div>
 		<div class="row mt-5 bg2" >
-			<div class="col-lg-6 p-2 ">
+			<div class="col-lg-6 p-2 order_content">
 				<h2>SPA & Wellness</h2>
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime pariatur dignissimos placeat ducimus sint, assumenda consectetur itaque fugiat eos velit doloremque qui provident ipsum excepturi ipsam vero. Similique, odit voluptatibus?</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ad dicta fugit enim molestiae nemo ratione excepturi sed eligendi culpa reiciendis ipsum, vel atque aut! Veniam minima repudiandae ipsam fugiat!</p>
@@ -180,7 +180,7 @@ export const home = () => {
   					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 p-2">
+			<div class="col-lg-6 p-2 order_img">
 					<figure class="figure">
 					  <img src='${background}' class="figure-img img-fluid" alt="Food">
 					</figure>

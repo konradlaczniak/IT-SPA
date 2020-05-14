@@ -1,6 +1,4 @@
 import $ from "jquery";
-import cartRoom from "../../images/cartRoom.png";
-import cartTreatment from "../../images/cartTreatment.png";
 import {
   calendarRestriction,
   reservationDetails,

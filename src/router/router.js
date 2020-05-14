@@ -20,6 +20,8 @@ export class Router {
 
     // TODO: uzyj zdarzenia 'popstate', aby wyrenderowac odpowiednia
     // sciezke, gdy uzytkownik klika Wstecz (<-) lub Naprzod (->)
+
+    //DONE
   }
 
   init() {
@@ -34,10 +36,11 @@ export class Router {
     return this.get(path) !== undefined;
   }
 
-  navigate(path, data = {}) {
+  navigate(path) {
     // sciezka istnieje, mozna nawigowac
     if (this.has(path)) {
       // { path: '/booking', data: {}, component: booking }
+
       const { component } = this.get(path);
       const html = component();
       this.outlet.empty().append(html);
@@ -45,7 +48,8 @@ export class Router {
       const html = oops();
       this.outlet.empty().append(html);
     }
-
-    history.pushState(data, "", path);
+    if (!history.state || history.state != path) {
+      history.pushState(path, "", path);
+    }
   }
 }

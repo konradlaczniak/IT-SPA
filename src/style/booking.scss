@@ -1,207 +1,185 @@
 .booking-header {
-    background-image: url("../images/booking.jpg");
-    background-size: cover;
-    background-position: 50% 0%;
-    background-attachment: fixed;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
+  background-image: url("../images/booking.jpg");
+  background-size: cover;
+  background-position: 50% 0%;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-    .alert-position {
-        z-index: 2;
-        position: fixed;
-        left: 50%;
-        bottom: 50%;
-        transform: translate(-50%, 50%);
+  .alert-position {
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+  }
 
-    }
+  .alert-fail {
+    padding: 50px;
+  }
 
-    .alert-fail {
-        padding: 50px;
-    }
+  .booking-form-box {
+    max-width: 350px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    margin: 0 auto 0;
 
-    .booking-form-box {
-        max-width: 350px;
+    .booking-form {
+      padding: 0 1rem 1rem;
+
+      label {
+        color: #fff;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      input::placeholder {
+        color: #fff !important;
+      }
+
+      .form-control {
+        font-size: 1rem;
         border: 1px solid grey;
         border-radius: 2px;
-        margin: 0 auto 0;
+        color: #fff;
+        background: transparent;
+        box-shadow: none;
+      }
 
-        .booking-form {
-            padding: 0 1rem 1rem;
+      .select-date::-webkit-inner-spin-button,
+      .select-date::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
-            label {
-                color: #fff;
-                margin-top: 1rem;
-                margin-bottom: 1rem;
-            }
+      .select-date::-webkit-calendar-picker-indicator {
+        background: transparent;
+      }
 
-            input::placeholder {
-                color: #fff !important;
-            }
+      .bookBtn {
+        width: 100%;
+        margin-top: 1rem;
+        border: 1px solid grey;
+        background: transparent;
+      }
 
-            .form-control {
-                font-size: 1rem;
-                border: 1px solid grey;
-                border-radius: 2px;
-                color: #fff;
-                background: transparent;
-                box-shadow: none;
-            }
-
-            .select-date::-webkit-inner-spin-button,
-            .select-date::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
-
-            .select-date::-webkit-calendar-picker-indicator {
-                background: transparent;
-            }
-
-            .bookBtn {
-                width: 100%;
-                margin-top: 1rem;
-                border: 1px solid grey;
-                background: transparent;
-            }
-
-            .bookBtn:hover {
-                background-color: #fff;
-                color: #000;
-                transition: 0.5s;
-            }
-        }
+      .bookBtn:hover {
+        background-color: #fff;
+        color: #000;
+        transition: 0.5s;
+      }
     }
-
+  }
 }
 
 .summary-section {
+  border: 1px solid #d2d7da;
+  padding: 0;
 
-    border: 1px solid #d2d7da;
-    padding: 0;
+  .list-group-item {
+    text-align: left;
+    margin: 1.5rem;
+    border-bottom: 1px solid #c59d5f;
 
-    .list-group-item {
-        text-align: left;
-        margin: 1.5rem;
-        border-bottom: 1px solid #c59d5f;
-
-        .summary-item-info {
-            font-weight: bold;
-        }
-
-        .section-header {
-            text-align: center;
-        }
-
-        .cart-total {
-            text-align: end;
-            margin-top: 10px;
-            margin-right: 10px;
-        }
-
-        .cart-total-title {
-            font-weight: bold;
-            font-size: 1.5em;
-            color: black;
-            margin-right: 20px;
-        }
-
-        .cart-total-price {
-            color: #333;
-            font-size: 1.5em;
-        }
+    .summary-item-info {
+      font-weight: bold;
     }
 
-    .list-group-item:last-child {
-        border-bottom: none;
+    .section-header {
+      text-align: center;
     }
 
-    // .cart-header {
-    // font-weight: bold;
-    // font-size: 1.25em;
-    // color: #333;
-    // justify-content: center;
-    // }
-
-
-
-
-    .card-header {
-        background-color: #c59d5f;
-        padding: 0.75rem 1.25rem;
+    .cart-total {
+      text-align: end;
+      margin-top: 10px;
+      margin-right: 10px;
     }
 
-    .cart-column {
-        display: flex;
-        align-items: center;
-        margin-right: 1.5em;
-        padding-bottom: 10px;
-        margin-top: 10px;
-
+    .cart-total-title {
+      font-weight: bold;
+      font-size: 1.5em;
+      color: black;
+      margin-right: 20px;
     }
 
-    .cart-row {
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #d2d7da;
-
+    .cart-total-price {
+      color: #333;
+      font-size: 1.5em;
     }
+  }
 
-    .cart-row:last-child {
-        border-bottom: none;
-    }
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
 
-    .cart-categories {
-        border-bottom: 1px solid darkgray;
-    }
+  .card-header {
+    background-color: #c59d5f;
+    padding: 0.75rem 1.25rem;
+  }
 
+  .cart-column {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+  }
 
+  .cart-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #d2d7da;
+  }
 
-    .cart-price {
-        font-size: 1.2em;
-        color: #333;
-    }
+  .cart-row:last-child {
+    border-bottom: none;
+  }
 
-    .cart-item-title {
-        color: #333;
-        margin-left: .5em;
-        font-size: 1.2em;
-    }
+  .cart-categories {
+    border-bottom: 1px solid darkgray;
+  }
 
-    .cart-item-image {
-        width: 75px;
-        height: auto;
-        border-radius: 10px;
-    }
+  .cart-price {
+    font-size: 1.2em;
+    color: #333;
+  }
 
+  .cart-item-title {
+    color: #333;
+    margin-left: 0.5em;
+    font-size: 1.2em;
+  }
+
+  .cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+  }
 }
 
 .button-holder {
-    display: flex;
+  display: flex;
 }
 
 .btn-purchase {
-
-    margin: 2rem auto 2rem auto;
-    font-size: 1.75em;
+  margin: 2rem auto 2rem auto;
+  font-size: 1.75em;
 }
 
 .btn-reservation-clear {
-
-    margin: 2rem auto 2rem auto;
-    font-size: 1.75em;
+  margin: 2rem auto 2rem auto;
+  font-size: 1.75em;
 }
 
 @media (max-width: 991.98px) {
-    .button-holder {
-        display: flex;
-        flex-wrap: wrap;
+  .button-holder {
+    display: flex;
+    flex-wrap: wrap;
 
-        .btn {
-            margin-top: 0.5rem;
-        }
+    .btn {
+      margin-top: 0.5rem;
     }
-
-
+  }
 }
