@@ -55,7 +55,13 @@
       }
 
       .select-date::-webkit-calendar-picker-indicator {
-        background: transparent;
+        opacity: 0.5;
+        transition: all 0.3s ease-in-out;
+      }
+
+      input::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+        cursor: pointer;
       }
 
       .bookBtn {
